@@ -490,7 +490,7 @@ jobs:
           name: result-cpu-${{ env.CORES }}-sub-1
           path: /test_report
   
-    test_sub_1_ws:
+  test_sub_1_ws:
     runs-on: ubuntu-latest
     needs: build
     name: test_sub_1_ws

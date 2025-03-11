@@ -7,7 +7,7 @@
   "password": "taosdata",
   "confirm_parameter_prompt": "no",
   "continue_if_fail": "yes",
-  "databases": "db",
+  "databases": "test",
   "query_times": 1,
   "query_mode": "taosc",
   "specified_table_query": {
@@ -15,7 +15,7 @@
     "concurrent": 10,
     "sqls": [
       {
-        "sql": "select * from stb limit 1000000",
+        "sql": "select * from meters limit 1000000",
         "result": "./query_res0.txt"
       }
     ]
