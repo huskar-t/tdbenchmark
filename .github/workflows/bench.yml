@@ -76,7 +76,7 @@ jobs:
           mkdir -p ./release
           cp ./TDengine/debug/build/bin/taos ./release/
           cp ./TDengine/debug/build/bin/taosd ./release/
-          cp ./TDengine/debug/build/bin/taosBenchmark ./release/
+          cp ./TDengine/debug/build/bin/taosBenchmark -v 10 ./release/
           cp ./TDengine/tools/taosadapter/taosadapter ./release/
           cp ./TDengine/debug/build/lib/libtaos.so.3.9.9.9 ./release/
           cp ./TDengine/debug/build/lib/libtaosnative.so.3.9.9.9 ./release/
@@ -87,10 +87,10 @@ jobs:
           chmod +x ./taosd
           chmod +x ./taosadapter
           chmod +x ./taosBenchmark
-          cp ./taos /bin/
+-v 10           cp ./taos /bin/
           cp ./taosd /bin/
           cp ./taosadapter /bin/
-          cp ./taosBenchmark /bin/
+          cp ./taosBenchmark -v 10 /bin/
           cp ./libtaos.so.3.9.9.9 /usr/lib
           cp ./libtaosnative.so.3.9.9.9 /usr/lib
           cp ./libtaosws.so /usr/lib
@@ -164,41 +164,41 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f insert.json -Z native -o /test_report/insert_native_1
+          sudo taosBenchmark -v 10 -f insert.json -Z native -o /test_report/insert_native_1
           echo "insert_native_1 done"
-          sudo taosBenchmark -f insert.json -Z native -o /test_report/insert_native_2
+          sudo taosBenchmark -v 10 -f insert.json -Z native -o /test_report/insert_native_2
           echo "insert_native_2 done"
-          sudo taosBenchmark -f insert.json -Z native -o /test_report/insert_native_3
+          sudo taosBenchmark -v 10 -f insert.json -Z native -o /test_report/insert_native_3
           echo "insert_native_3 done"
-          sudo taosBenchmark -f insert.json -Z websocket -o /test_report/insert_ws_1
+          sudo taosBenchmark -v 10 -f insert.json -Z websocket -o /test_report/insert_ws_1
           echo "insert_ws_1 done"
-          sudo taosBenchmark -f insert.json -Z websocket -o /test_report/insert_ws_2
+          sudo taosBenchmark -v 10 -f insert.json -Z websocket -o /test_report/insert_ws_2
           echo "insert_ws_2 done"
-          sudo taosBenchmark -f insert.json -Z websocket -o /test_report/insert_ws_3
+          sudo taosBenchmark -v 10 -f insert.json -Z websocket -o /test_report/insert_ws_3
           echo "insert_ws_3 done"
-          sudo taosBenchmark -f query.json -Z native -o /test_report/query_native_1
+          sudo taosBenchmark -v 10 -f query.json -Z native -o /test_report/query_native_1
           echo "query_native_1 done"
-          sudo taosBenchmark -f query.json -Z native -o /test_report/query_native_2
+          sudo taosBenchmark -v 10 -f query.json -Z native -o /test_report/query_native_2
           echo "query_native_2 done"
-          sudo taosBenchmark -f query.json -Z native -o /test_report/query_native_3
+          sudo taosBenchmark -v 10 -f query.json -Z native -o /test_report/query_native_3
           echo "query_native_3 done"
-          sudo taosBenchmark -f query.json -Z websocket -o /test_report/query_ws_1
+          sudo taosBenchmark -v 10 -f query.json -Z websocket -o /test_report/query_ws_1
           echo "query_ws_1 done"
-          sudo taosBenchmark -f query.json -Z websocket -o /test_report/query_ws_2
+          sudo taosBenchmark -v 10 -f query.json -Z websocket -o /test_report/query_ws_2
           echo "query_ws_2 done"
-          sudo taosBenchmark -f query.json -Z websocket -o /test_report/query_ws_3
+          sudo taosBenchmark -v 10 -f query.json -Z websocket -o /test_report/query_ws_3
           echo "query_ws_3 done"
-          sudo taosBenchmark -f stmt2.json -Z native -o /test_report/stmt2_native_1
+          sudo taosBenchmark -v 10 -f stmt2.json -Z native -o /test_report/stmt2_native_1
           echo "stmt2_native_1 done"
-          sudo taosBenchmark -f stmt2.json -Z native -o /test_report/stmt2_native_2
+          sudo taosBenchmark -v 10 -f stmt2.json -Z native -o /test_report/stmt2_native_2
           echo "stmt2_native_2 done"
-          sudo taosBenchmark -f stmt2.json -Z native -o /test_report/stmt2_native_3
+          sudo taosBenchmark -v 10 -f stmt2.json -Z native -o /test_report/stmt2_native_3
           echo "stmt2_native_3 done"
-          sudo taosBenchmark -f stmt2.json -Z websocket -o /test_report/stmt2_ws_1
+          sudo taosBenchmark -v 10 -f stmt2.json -Z websocket -o /test_report/stmt2_ws_1
           echo "stmt2_ws_1 done"
-          sudo taosBenchmark -f stmt2.json -Z websocket -o /test_report/stmt2_ws_2
+          sudo taosBenchmark -v 10 -f stmt2.json -Z websocket -o /test_report/stmt2_ws_2
           echo "stmt2_ws_2 done"
-          sudo taosBenchmark -f stmt2.json -Z websocket -o /test_report/stmt2_ws_3
+          sudo taosBenchmark -v 10 -f stmt2.json -Z websocket -o /test_report/stmt2_ws_3
           echo "stmt2_ws_3 done"
 
       - name: Get CPU cores
@@ -269,41 +269,41 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f insert_8.json -Z native -o /test_report/insert_native_1
+          sudo taosBenchmark -v 10 -f insert_8.json -Z native -o /test_report/insert_native_1
           echo "threads 8 insert_native_1 done"
-          sudo taosBenchmark -f insert_8.json -Z native -o /test_report/insert_native_2
+          sudo taosBenchmark -v 10 -f insert_8.json -Z native -o /test_report/insert_native_2
           echo "threads 8 insert_native_2 done"
-          sudo taosBenchmark -f insert_8.json -Z native -o /test_report/insert_native_3
+          sudo taosBenchmark -v 10 -f insert_8.json -Z native -o /test_report/insert_native_3
           echo "threads 8 insert_native_3 done"
-          sudo taosBenchmark -f insert_8.json -Z websocket -o /test_report/insert_ws_1
+          sudo taosBenchmark -v 10 -f insert_8.json -Z websocket -o /test_report/insert_ws_1
           echo "threads 8 insert_ws_1 done"
-          sudo taosBenchmark -f insert_8.json -Z websocket -o /test_report/insert_ws_2
+          sudo taosBenchmark -v 10 -f insert_8.json -Z websocket -o /test_report/insert_ws_2
           echo "threads 8 insert_ws_2 done"
-          sudo taosBenchmark -f insert_8.json -Z websocket -o /test_report/insert_ws_3
+          sudo taosBenchmark -v 10 -f insert_8.json -Z websocket -o /test_report/insert_ws_3
           echo "threads 8 insert_ws_3 done"
-          sudo taosBenchmark -f query_8.json -Z native -o /test_report/query_native_1
+          sudo taosBenchmark -v 10 -f query_8.json -Z native -o /test_report/query_native_1
           echo "threads 8 query_native_1 done"
-          sudo taosBenchmark -f query_8.json -Z native -o /test_report/query_native_2
+          sudo taosBenchmark -v 10 -f query_8.json -Z native -o /test_report/query_native_2
           echo "threads 8 query_native_2 done"
-          sudo taosBenchmark -f query_8.json -Z native -o /test_report/query_native_3
+          sudo taosBenchmark -v 10 -f query_8.json -Z native -o /test_report/query_native_3
           echo "threads 8 query_native_3 done"
-          sudo taosBenchmark -f query_8.json -Z websocket -o /test_report/query_ws_1
+          sudo taosBenchmark -v 10 -f query_8.json -Z websocket -o /test_report/query_ws_1
           echo "threads 8 query_ws_1 done"
-          sudo taosBenchmark -f query_8.json -Z websocket -o /test_report/query_ws_2
+          sudo taosBenchmark -v 10 -f query_8.json -Z websocket -o /test_report/query_ws_2
           echo "threads 8 query_ws_2 done"
-          sudo taosBenchmark -f query_8.json -Z websocket -o /test_report/query_ws_3
+          sudo taosBenchmark -v 10 -f query_8.json -Z websocket -o /test_report/query_ws_3
           echo "threads 8 query_ws_3 done"
-          sudo taosBenchmark -f stmt2_8.json -Z native -o /test_report/stmt2_native_1
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z native -o /test_report/stmt2_native_1
           echo "threads 8 stmt2_native_1 done"
-          sudo taosBenchmark -f stmt2_8.json -Z native -o /test_report/stmt2_native_2
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z native -o /test_report/stmt2_native_2
           echo "threads 8 stmt2_native_2 done"
-          sudo taosBenchmark -f stmt2_8.json -Z native -o /test_report/stmt2_native_3
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z native -o /test_report/stmt2_native_3
           echo "threads 8 stmt2_native_3 done"
-          sudo taosBenchmark -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_1
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_1
           echo "threads 8 stmt2_ws_1 done"
-          sudo taosBenchmark -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_2
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_2
           echo "threads 8 stmt2_ws_2 done"
-          sudo taosBenchmark -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_3
+          sudo taosBenchmark -v 10 -f stmt2_8.json -Z websocket -o /test_report/stmt2_ws_3
           echo "threads 8 stmt2_ws_3 done"
     
       - name: Get CPU cores
@@ -373,41 +373,41 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f insert_10.json -Z native -o /test_report/insert_native_1
+          sudo taosBenchmark -v 10 -f insert_10.json -Z native -o /test_report/insert_native_1
           echo "threads 10 insert_native_1 done"
-          sudo taosBenchmark -f insert_10.json -Z native -o /test_report/insert_native_2
+          sudo taosBenchmark -v 10 -f insert_10.json -Z native -o /test_report/insert_native_2
           echo "threads 10 insert_native_2 done"
-          sudo taosBenchmark -f insert_10.json -Z native -o /test_report/insert_native_3
+          sudo taosBenchmark -v 10 -f insert_10.json -Z native -o /test_report/insert_native_3
           echo "threads 10 insert_native_3 done"
-          sudo taosBenchmark -f insert_10.json -Z websocket -o /test_report/insert_ws_1
+          sudo taosBenchmark -v 10 -f insert_10.json -Z websocket -o /test_report/insert_ws_1
           echo "threads 10 insert_ws_1 done"
-          sudo taosBenchmark -f insert_10.json -Z websocket -o /test_report/insert_ws_2
+          sudo taosBenchmark -v 10 -f insert_10.json -Z websocket -o /test_report/insert_ws_2
           echo "threads 10 insert_ws_2 done"
-          sudo taosBenchmark -f insert_10.json -Z websocket -o /test_report/insert_ws_3
+          sudo taosBenchmark -v 10 -f insert_10.json -Z websocket -o /test_report/insert_ws_3
           echo "threads 10 insert_ws_3 done"
-          sudo taosBenchmark -f query_10.json -Z native -o /test_report/query_native_1
+          sudo taosBenchmark -v 10 -f query_10.json -Z native -o /test_report/query_native_1
           echo "threads 10 query_native_1 done"
-          sudo taosBenchmark -f query_10.json -Z native -o /test_report/query_native_2
+          sudo taosBenchmark -v 10 -f query_10.json -Z native -o /test_report/query_native_2
           echo "threads 10 query_native_2 done"
-          sudo taosBenchmark -f query_10.json -Z native -o /test_report/query_native_3
+          sudo taosBenchmark -v 10 -f query_10.json -Z native -o /test_report/query_native_3
           echo "threads 10 query_native_3 done"
-          sudo taosBenchmark -f query_10.json -Z websocket -o /test_report/query_ws_1
+          sudo taosBenchmark -v 10 -f query_10.json -Z websocket -o /test_report/query_ws_1
           echo "threads 10 query_ws_1 done"
-          sudo taosBenchmark -f query_10.json -Z websocket -o /test_report/query_ws_2
+          sudo taosBenchmark -v 10 -f query_10.json -Z websocket -o /test_report/query_ws_2
           echo "threads 10 query_ws_2 done"
-          sudo taosBenchmark -f query_10.json -Z websocket -o /test_report/query_ws_3
+          sudo taosBenchmark -v 10 -f query_10.json -Z websocket -o /test_report/query_ws_3
           echo "threads 10 query_ws_3 done"
-          sudo taosBenchmark -f stmt2_10.json -Z native -o /test_report/stmt2_native_1
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native -o /test_report/stmt2_native_1
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f stmt2_10.json -Z native -o /test_report/stmt2_native_2
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native -o /test_report/stmt2_native_2
           echo "threads 10 stmt2_native_2 done"
-          sudo taosBenchmark -f stmt2_10.json -Z native -o /test_report/stmt2_native_3
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native -o /test_report/stmt2_native_3
           echo "threads 10 stmt2_native_3 done"
-          sudo taosBenchmark -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_1
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_1
           echo "threads 10 stmt2_ws_1 done"
-          sudo taosBenchmark -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_2
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_2
           echo "threads 10 stmt2_ws_2 done"
-          sudo taosBenchmark -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_3
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z websocket -o /test_report/stmt2_ws_3
           echo "threads 10 stmt2_ws_3 done"
     
       - name: Get CPU cores
@@ -478,9 +478,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub.json -Z native -o /test_report/sub_1
+          sudo taosBenchmark -v 10 -f sub.json -Z native -o /test_report/sub_1
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
@@ -549,9 +549,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub.json -Z websocket -o /test_report/sub_1
+          sudo taosBenchmark -v 10 -f sub.json -Z websocket -o /test_report/sub_1
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
@@ -620,9 +620,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub_8.json -Z native -o /test_report/sub_8
+          sudo taosBenchmark -v 10 -f sub_8.json -Z native -o /test_report/sub_8
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
@@ -692,9 +692,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub_8.json -Z websocket -o /test_report/sub_8
+          sudo taosBenchmark -v 10 -f sub_8.json -Z websocket -o /test_report/sub_8
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
@@ -763,9 +763,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub_10.json -Z native -o /test_report/sub_10
+          sudo taosBenchmark -v 10 -f sub_10.json -Z native -o /test_report/sub_10
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
@@ -835,9 +835,9 @@ jobs:
       - name: insert_and_query
         run: |
           echo "start insert and query test"
-          sudo taosBenchmark -f stmt2_10.json -Z native
+          sudo taosBenchmark -v 10 -f stmt2_10.json -Z native
           echo "threads 10 stmt2_native_1 done"
-          sudo taosBenchmark -f sub_10.json -Z websocket -o /test_report/sub_10
+          sudo taosBenchmark -v 10 -f sub_10.json -Z websocket -o /test_report/sub_10
     
       - name: Get CPU cores
         run: echo "CORES=$(nproc)" >> $GITHUB_ENV
