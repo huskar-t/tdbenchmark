@@ -76,7 +76,7 @@ jobs:
           mkdir -p ./release
           cp ./TDengine/debug/build/bin/taos ./release/
           cp ./TDengine/debug/build/bin/taosd ./release/
-          cp ./TDengine/debug/build/bin/taosBenchmark -v 10 ./release/
+          cp ./TDengine/debug/build/bin/taosBenchmark ./release/
           cp ./TDengine/tools/taosadapter/taosadapter ./release/
           cp ./TDengine/debug/build/lib/libtaos.so.3.9.9.9 ./release/
           cp ./TDengine/debug/build/lib/libtaosnative.so.3.9.9.9 ./release/
@@ -87,10 +87,10 @@ jobs:
           chmod +x ./taosd
           chmod +x ./taosadapter
           chmod +x ./taosBenchmark
--v 10           cp ./taos /bin/
+          cp ./taos /bin/
           cp ./taosd /bin/
           cp ./taosadapter /bin/
-          cp ./taosBenchmark -v 10 /bin/
+          cp ./taosBenchmark /bin/
           cp ./libtaos.so.3.9.9.9 /usr/lib
           cp ./libtaosnative.so.3.9.9.9 /usr/lib
           cp ./libtaosws.so /usr/lib
