@@ -5,124 +5,82 @@
   "port": 6030,
   "user": "root",
   "password": "taosdata",
-  "connection_pool_size": 4,
-  "num_of_records_per_req": 3000,
-  "prepared_rand": 3000,
   "thread_count": 10,
   "create_table_thread_count": 10,
+  "result_file": "./insert_res.txt",
   "confirm_parameter_prompt": "no",
+  "num_of_records_per_req": 10000,
+  "prepared_rand": 10000,
+  "chinese": "no",
+  "escape_character": "yes",
+  "continue_if_fail": "no",
   "databases": [
     {
       "dbinfo": {
-        "name": "db",
+        "name": "test",
         "drop": "yes",
-        "vgroups": 10,
-        "replica": 1,
-        "duration": "1d",
-        "wal_retention_period": 1,
-        "wal_retention_size": 1
+        "vgroups": 64,
+        "precision": "ms"
       },
       "super_tables": [
         {
-          "name": "stb",
+          "name": "meters",
           "child_table_exists": "no",
-          "childtable_count": 10,
-          "insert_rows": 1000000,
+          "childtable_count": 1000000,
           "childtable_prefix": "d",
+          "auto_create_table": "no",
+          "batch_create_tbl_num": 1000,
+          "data_source": "rand",
           "insert_mode": "taosc",
-          "timestamp_step": 1000,
-          "start_timestamp": "2023-10-01 10:00:00",
+          "non_stop_mode": "no",
+          "insert_rows": 100,
+          "interlace_rows": 1,
+          "insert_interval": 0,
+          "timestamp_step": 10,
+          "start_timestamp": "2025-03-11 00:00:00.000",
           "columns": [
             {
-              "type": "float",
-              "name": "fc",
-              "min": 100,
-              "max": 100
+              "type": "FLOAT",
+              "name": "current",
+              "count": 1,
+              "max": 99,
+              "min": 10
             },
             {
-              "type": "double",
-              "name": "dc",
-              "min": 200,
-              "max": 200
+              "type": "INT",
+              "name": "voltage",
+              "max": 99,
+              "min": 10
             },
             {
-              "type": "tinyint",
-              "name": "ti",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "smallint",
-              "name": "si",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "int",
-              "name": "ic",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "bigint",
-              "name": "bi",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "utinyint",
-              "name": "uti",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "usmallint",
-              "name": "usi",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "uint",
-              "name": "ui",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "ubigint",
-              "name": "ubi",
-              "min": 100,
-              "max": 100
-            },
-            {
-              "type": "binary",
-              "name": "bin",
-              "len": 16,
-              "values": [
-                "San Francisco"
-              ]
-            },
-            {
-              "type": "nchar",
-              "name": "nch",
-              "len": 32,
-              "values": [
-                "San Francisco"
-              ]
+              "type": "FLOAT",
+              "name": "phase",
+              "max": 1,
+              "min": 0
             }
           ],
           "tags": [
             {
-              "type": "tinyint",
+              "type": "TINYINT",
               "name": "groupid",
-              "max": 10,
-              "min": 1
+              "max": 99,
+              "min": 10
             },
             {
+              "type": "BINARY",
               "name": "location",
-              "type": "binary",
               "len": 16,
               "values": [
-                "San Francisco"
+                "San Francisco",
+                "Los Angles111",
+                "San Diego1111",
+                "San Jose11111",
+                "Palo Alto1111",
+                "Campbell11111",
+                "Mountain View",
+                "Sunnyvale1111",
+                "Santa Clara11",
+                "Cupertino1111"
               ]
             }
           ]
