@@ -1,0 +1,23 @@
+{
+  "filetype": "query",
+  "cfgdir": "/etc/taos",
+  "host": "127.0.0.1",
+  "port": 6030,
+  "user": "root",
+  "password": "taosdata",
+  "confirm_parameter_prompt": "no",
+  "continue_if_fail": "yes",
+  "databases": "db",
+  "query_times": 1,
+  "query_mode": "taosc",
+  "specified_table_query": {
+    "query_interval": 0,
+    "concurrent": 8,
+    "sqls": [
+      {
+        "sql": "select * from stb limit 1000000",
+        "result": "./query_res0.txt"
+      }
+    ]
+  }
+}
